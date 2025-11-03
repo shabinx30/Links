@@ -1,63 +1,34 @@
-import {
-    FiGithub,
-    FiExternalLink,
-    FiLinkedin,
-    FiInstagram,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
+import Hero from "@/components/Hero";
+import SocialMedia from "@/components/SocialMedia";
+import PersonalSite from "@/components/PersonalSite";
+import { socialLinks } from "@/const/socialLinks";
 
 const page = () => {
     return (
-        <main className="flex flex-col gap-12 items-center justify-center h-screen">
-            <section className="flex flex-col items-center gap-2">
-                <Image
-                    className="rounded-full w-[8em] border-2 border-black dark:border-[#aeff62]"
-                    src="/profile.jpg"
-                    alt="shabin"
-                    width={100}
-                    height={100}
-                />
-                <h1 className="text-xl lg:text-2xl dark:text-transparent tan-kulture font-extralight bg-clip-text text-black dark:bg-gradient-to-r to-[#8d8d8d] via-white from-[#8d8d8d]">
-                    Shabeen Sharih
-                </h1>
-                <p className="text-sm">
-                    Hey guys👋, Check out my other platforms below👇
-                </p>
-            </section>
-            <section>
-                <ul className="flex flex-col gap-2">
-                    <Link
-                        href="https://www.linkedin.com/in/shabeen-sharih/"
-                        target="_blank"
-                    >
-                        <li className="bg-[#aeff62] text-black flex items-center justify-center gap-4 text-md md:text-lg py-2 px-[4em] rounded-3xl">
-                            <FiLinkedin />
-                            <h2>LinkedIn</h2>
-                        </li>
-                    </Link>
-                    <Link href="https://github.com/shabinx30" target="_blank">
-                        <li className="bg-[#aeff62] text-black flex items-center justify-center gap-4 text-md md:text-lg py-2 px-[4em] rounded-3xl">
-                            <FiGithub />
-                            <h2>Github</h2>
-                        </li>
-                    </Link>
-                    <Link
-                        href="https://www.instagram.com/shabinsharih/"
-                        target="_blank"
-                    >
-                        <li className="bg-[#aeff62] text-black flex items-center justify-center gap-4 text-md md:text-lg py-2 px-[4em] rounded-3xl">
-                            <FiInstagram />
-                            <h2>Instagram</h2>
-                        </li>
-                    </Link>
+        <main className="relative min-h-screen w-full bg-linear-to-b from-transparent to-[#f7f7f7] dark:from-[#0b0b0b83] dark:to-[#121212]">
+            <div className="absolute inset-0 pointer-events-none mask-[radial-gradient(50%_50%_at_50%_0%,black,transparent_70%)]" />
+
+            <section className="container mx-auto px-6 py-12 max-w-3xl flex flex-col items-center gap-8">
+                <div className="flex flex-col items-center text-center gap-4">
+                    <Hero />
+                </div>
+
+                <ul className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                    {socialLinks.map(
+                        ({ name, href, icon: Icon, bg, ring }, i) => (
+                            <SocialMedia
+                                key={name}
+                                name={name}
+                                href={href}
+                                index={i}
+                                bg={bg}
+                                ring={ring}
+                            />
+                        )
+                    )}
                 </ul>
-            </section>
-            <section>
-                <Link className="flex items-center gap-4 border-2 text-black dark:text-[#aeff62] py-2 px-4 rounded-3xl" href="https://shabeensharih.tungstenz.online">
-                    <h2>Checkout My Personal Website</h2>
-                    <FiExternalLink />
-                </Link>
+
+                <PersonalSite />
             </section>
         </main>
     );

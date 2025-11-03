@@ -31,19 +31,11 @@ body {
   /* background: var(--background); */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  --s: 70px;
-  /* control the size*/
-
-  --_g:
-    var(--background) 0% 5%, var(--c2) 6% 15%, var(--background) 16% 25%, var(--c2) 26% 35%, var(--background) 36% 45%,
-    var(--c2) 46% 55%, var(--background) 56% 65%, var(--c2) 66% 75%, var(--background) 76% 85%, var(--c2) 86% 95%,
-    #0000 96%;
-  background:
-    radial-gradient(50% 50% at 100% 0, var(--_g)),
-    radial-gradient(50% 50% at 0 100%, var(--_g)),
-    radial-gradient(50% 50%, var(--_g)),
-    radial-gradient(50% 50%, var(--_g)) calc(var(--s)/2) calc(var(--s)/2) var(--background);
-  background-size: var(--s) var(--s);
+  background-color: var(--background);
+  overflow-x: hidden;
+  /* opacity: 0.2; */
+  background-image: linear-gradient(#aeff6249 2px, transparent 2px), linear-gradient(to right, #aeff6249 2px, var(--background) 2px);
+  background-size: 60px 60px;
 }
 
 .tan-kulture {
