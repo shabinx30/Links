@@ -63,7 +63,7 @@ const profile = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                     <p
                         ref={descRef}
-                        className="flex items-center text-sm md:text-base text-black/70 dark:text-white/70"
+                        className="flex items-center text-xs sm:text-sm md:text-base text-black/70 dark:text-white/70"
                     >
                         Hey guys{" "}
                         <IoMdHand className="ml-1 rotate-[-35deg] text-black dark:text-[#aeff62]" />
